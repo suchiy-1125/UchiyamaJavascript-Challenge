@@ -26,7 +26,7 @@ submit.on("click", function(){
     console.log(inputCountry);
     console.log(inputShape);
 
-    var filteredData = [];
+    var filteredData = tableData;
     var inputs = [inputDate, inputCity, inputState, inputCountry, inputShape];
     var filters = ["datetime", "city", "state", "country", "shape"];
     var nonBlankInputs = [];
@@ -38,9 +38,9 @@ submit.on("click", function(){
             ourFilters.push(filters[i]);
         }
     };
-
+    
     for (var i = 0; i<nonBlankInputs.length; i++) {
-        filteredData = tableData.filter(row => row[ourFilters[i]] === nonBlankInputs[i]);
+        filteredData = filteredData.filter(row => row[ourFilters[i]] === nonBlankInputs[i]);
     }
     
     console.log(filteredData);
